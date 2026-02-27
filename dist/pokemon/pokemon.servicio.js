@@ -60,6 +60,10 @@ let PokemonServicio = class PokemonServicio {
         }
         return query.getMany();
     }
+    create(dto) {
+        const pokemon = this.pokemonRepo.create(dto);
+        return this.pokemonRepo.save(pokemon);
+    }
 };
 exports.PokemonServicio = PokemonServicio;
 exports.PokemonServicio = PokemonServicio = __decorate([

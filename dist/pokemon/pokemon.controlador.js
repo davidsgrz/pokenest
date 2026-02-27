@@ -16,6 +16,7 @@ exports.PokemonControlador = void 0;
 const common_1 = require("@nestjs/common");
 const pokemon_servicio_1 = require("./pokemon.servicio");
 const filtrar_pokemon_dto_1 = require("./dto/filtrar-pokemon.dto");
+const crear_pokemon_dto_1 = require("./dto/crear-pokemon.dto");
 let PokemonControlador = class PokemonControlador {
     pokemonServicio;
     constructor(pokemonServicio) {
@@ -26,6 +27,9 @@ let PokemonControlador = class PokemonControlador {
     }
     filtrar(dto) {
         return this.pokemonServicio.filtrar(dto);
+    }
+    create(dto) {
+        return this.pokemonServicio.create(dto);
     }
 };
 exports.PokemonControlador = PokemonControlador;
@@ -42,6 +46,13 @@ __decorate([
     __metadata("design:paramtypes", [filtrar_pokemon_dto_1.FiltrarPokemonDto]),
     __metadata("design:returntype", Promise)
 ], PokemonControlador.prototype, "filtrar", null);
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [crear_pokemon_dto_1.CrearPokemonDto]),
+    __metadata("design:returntype", Promise)
+], PokemonControlador.prototype, "create", null);
 exports.PokemonControlador = PokemonControlador = __decorate([
     (0, common_1.Controller)('pokemon'),
     __metadata("design:paramtypes", [pokemon_servicio_1.PokemonServicio])
